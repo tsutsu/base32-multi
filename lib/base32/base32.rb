@@ -7,7 +7,7 @@ module Base32
   def b2a(binstr)
     n_pentets = ((binstr.length * 8) + 4) / 5
     bigint = binstr.bytes.inject(0){ |i,octet| (i << 8) | octet }
-    bigint.to_s(32).rjust(n_pentets, '0')
+    bigint.to_s(32).rjust(n_pentets, '0').upcase
   end
 
   def a2b(ascstr)
